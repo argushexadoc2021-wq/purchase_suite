@@ -100,7 +100,7 @@ function Landing() {
           </div>
 
           {/* Right Column: Hero Image */}
-          <div className="relative animate-in fade-in slide-in-from-right-8 duration-1000 delay-200 lg:ml-auto">
+          <div className="relative animate-in fade-in slide-in-from-right-8 duration-1000 delay-200 lg:ml-auto w-full">
             {/* Glow behind image */}
             <div className="absolute inset-0 bg-gradient-to-tr from-rose-500/10 to-red-500/10 blur-3xl rounded-full transform scale-90" />
 
