@@ -34,10 +34,10 @@ function Landing() {
       <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay pointer-events-none"></div>
 
       {/* Header */}
-      <header className="mx-auto flex max-w-7xl items-center justify-between px-6 pt-8 pb-6 relative z-20">
+      <header className="mx-auto flex max-w-7xl items-center justify-between px-6 pt-8 pb-2 relative z-20">
         <div className="flex items-center gap-3">
-          <img src="/logo.jpg" alt="Argus Logo" className="w-10 h-10 object-contain" />
-          <span className="font-display text-2xl font-bold tracking-tight text-white">
+          <img src="/logo.jpg" alt="Argus Logo" className="w-12 h-12 object-contain" />
+          <span className="font-display text-3xl font-bold tracking-tight text-white">
             Argus Purchase Suite
           </span>
         </div>
@@ -47,7 +47,7 @@ function Landing() {
       </header>
 
       {/* Hero Section */}
-      <section className="mx-auto max-w-7xl px-6 pt-8 pb-32 relative z-10">
+      <section className="mx-auto max-w-7xl px-6 pt-2 pb-32 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
 
           {/* Left Column: Text Content */}
