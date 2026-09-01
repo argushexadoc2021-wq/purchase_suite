@@ -26,7 +26,8 @@ export function AppHeader() {
     <header className="border-b border-border bg-card">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <div className="flex items-center gap-6">
-          <Link to="/invoices" className="font-display text-2xl font-semibold tracking-tight text-primary">
+          <Link to="/invoices" className="flex items-center gap-2 font-display text-2xl font-semibold tracking-tight text-primary">
+            <img src="/logo.jpg" alt="Argus Logo" className="w-8 h-8 object-contain" />
             Argus Purchase Suite
           </Link>
           <nav className="hidden sm:flex items-center gap-1">

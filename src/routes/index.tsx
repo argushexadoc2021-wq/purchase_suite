@@ -35,12 +35,10 @@ function Landing() {
 
       {/* Header */}
       <header className="mx-auto flex max-w-7xl items-center justify-between px-6 pt-8 pb-6 relative z-20">
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-400 to-teal-600 flex items-center justify-center shadow-lg shadow-emerald-500/20">
-            <ScanText className="w-5 h-5 text-white" />
-          </div>
+        <div className="flex items-center gap-3">
+          <img src="/logo.jpg" alt="Argus Logo" className="w-10 h-10 object-contain" />
           <span className="font-display text-2xl font-bold tracking-tight text-white">
-            Argus
+            Argus Purchase Suite
           </span>
         </div>
         <Button asChild variant="outline" className="rounded-full px-6 bg-white/5 border-white/10 hover:bg-white/10 hover:text-white text-white backdrop-blur-md transition-all">
@@ -106,9 +104,9 @@ function Landing() {
       {/* Footer */}
       <footer className="relative z-10 border-t border-white/10 bg-[#050505] py-12">
         <div className="mx-auto max-w-7xl px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <ScanText className="w-5 h-5 text-emerald-500" />
-            <span className="font-display font-bold text-white">Argus</span>
+          <div className="flex items-center gap-3">
+            <img src="/logo.jpg" alt="Argus Logo" className="w-6 h-6 object-contain" />
+            <span className="font-display font-bold text-white">Argus Purchase Suite</span>
           </div>
           <p className="text-sm text-zinc-500">
             © 2026 Argus CNC. All Rights Reserved.

@@ -88,7 +88,8 @@ function AuthPage() {
   return (
     <main className="flex min-h-screen flex-col bg-background">
       <header className="mx-auto w-full max-w-6xl px-6 py-6">
-        <Link to="/" className="font-display text-lg font-semibold tracking-tight text-primary">
+        <Link to="/" className="flex items-center gap-2 font-display text-lg font-semibold tracking-tight text-primary">
+          <img src="/logo.jpg" alt="Argus Logo" className="w-8 h-8 object-contain" />
           Argus Purchase Suite
         </Link>
       </header>
