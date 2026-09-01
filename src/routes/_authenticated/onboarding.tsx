@@ -149,10 +149,10 @@ function OnboardingPage() {
     };
 
     return (
-        <main className="flex min-h-screen flex-col items-center justify-center bg-[#0a0a0a] text-white relative overflow-hidden font-sans selection:bg-emerald-500/30 p-6">
+        <main className="flex min-h-screen flex-col items-center justify-center bg-[#0a0a0a] text-white relative overflow-hidden font-sans selection:bg-rose-500/30 p-6">
             {/* Dynamic Background Gradients */}
-            <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-emerald-500/20 blur-[120px] mix-blend-screen animate-pulse pointer-events-none" style={{ animationDuration: '8s' }} />
-            <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] rounded-full bg-purple-600/20 blur-[120px] mix-blend-screen animate-pulse pointer-events-none" style={{ animationDuration: '10s', animationDelay: '2s' }} />
+            <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-rose-500/10 blur-[120px] mix-blend-screen animate-pulse pointer-events-none" style={{ animationDuration: '8s' }} />
+            <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] rounded-full bg-red-500/10 blur-[120px] mix-blend-screen animate-pulse pointer-events-none" style={{ animationDuration: '10s', animationDelay: '2s' }} />
             <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay pointer-events-none"></div>
 
             <div className="w-full max-w-2xl p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-2xl shadow-black/50 relative z-10">
@@ -194,7 +194,7 @@ function OnboardingPage() {
                         <div className="rounded-lg border border-white/10 bg-black/50 text-white shadow-sm overflow-hidden backdrop-blur-md">
                             <div className="bg-white/5 px-4 py-3 border-b border-white/10 flex items-center justify-between">
                                 <h3 className="font-semibold text-sm">Verified Company Details</h3>
-                                <div className="flex items-center text-emerald-600 text-xs font-medium">
+                                <div className="flex items-center text-rose-500 text-xs font-medium">
                                     <CheckCircle2 className="w-4 h-4 mr-1" />
                                     Verified via GSTIN
                                 </div>
@@ -213,7 +213,7 @@ function OnboardingPage() {
                                 <div className="space-y-1">
                                     <p className="text-zinc-400 text-xs uppercase tracking-wider">Status</p>
                                     <p className="font-medium">
-                                        <span className="inline-flex items-center rounded-full bg-emerald-100 px-2.5 py-0.5 text-xs font-semibold text-emerald-800">
+                                        <span className="inline-flex items-center rounded-full bg-rose-500/20 px-2.5 py-0.5 text-xs font-semibold text-rose-400">
                                             {gstDetails.gstin_status}
                                         </span>
                                     </p>
@@ -251,7 +251,7 @@ function OnboardingPage() {
                         </div>
                     )}
 
-                    <Button type="submit" className="w-full bg-emerald-500 hover:bg-emerald-400 text-black font-semibold rounded-full shadow-[0_0_20px_rgba(16,185,129,0.2)] transition-all" disabled={busy || !isGstVerified || !!existingCompany}>
+                    <Button type="submit" className="w-full bg-rose-600 hover:bg-rose-500 text-white font-semibold rounded-full shadow-[0_0_20px_rgba(225,29,72,0.2)] transition-all" disabled={busy || !isGstVerified || !!existingCompany}>
                         {busy ? <Loader2 className="size-4 animate-spin mr-2" /> : null}
                         Confirm & Complete Setup
                     </Button>

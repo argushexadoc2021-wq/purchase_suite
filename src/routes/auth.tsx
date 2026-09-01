@@ -86,10 +86,10 @@ function AuthPage() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col bg-[#0a0a0a] text-white relative overflow-hidden font-sans selection:bg-emerald-500/30">
+    <main className="flex min-h-screen flex-col bg-[#0a0a0a] text-white relative overflow-hidden font-sans selection:bg-rose-500/30">
       {/* Dynamic Background Gradients */}
-      <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-emerald-500/20 blur-[120px] mix-blend-screen animate-pulse pointer-events-none" style={{ animationDuration: '8s' }} />
-      <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] rounded-full bg-purple-600/20 blur-[120px] mix-blend-screen animate-pulse pointer-events-none" style={{ animationDuration: '10s', animationDelay: '2s' }} />
+      <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-rose-500/10 blur-[120px] mix-blend-screen animate-pulse pointer-events-none" style={{ animationDuration: '8s' }} />
+      <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] rounded-full bg-red-500/10 blur-[120px] mix-blend-screen animate-pulse pointer-events-none" style={{ animationDuration: '10s', animationDelay: '2s' }} />
       <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay pointer-events-none"></div>
 
       <header className="mx-auto w-full max-w-6xl px-6 py-6 relative z-20">
@@ -146,7 +146,7 @@ function AuthPage() {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            <Button type="submit" className="w-full bg-emerald-500 hover:bg-emerald-400 text-black font-semibold rounded-full shadow-[0_0_20px_rgba(16,185,129,0.2)] transition-all" disabled={busy}>
+            <Button type="submit" className="w-full bg-rose-600 hover:bg-rose-500 text-white font-semibold rounded-full shadow-[0_0_20px_rgba(225,29,72,0.2)] transition-all" disabled={busy}>
               {busy ? <Loader2 className="size-4 animate-spin mr-2" /> : null}
               {isRegistering ? "Register" : "Sign in"}
             </Button>
@@ -193,7 +193,7 @@ function AuthPage() {
             <button
               type="button"
               onClick={() => setIsRegistering(!isRegistering)}
-              className="text-emerald-400 hover:text-emerald-300 hover:underline transition-colors"
+              className="text-rose-400 hover:text-rose-300 hover:underline transition-colors"
             >
               {isRegistering
                 ? "Already have an account? Sign in"
