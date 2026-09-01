@@ -186,7 +186,7 @@ function AuthPage() {
                 fill="#EA4335"
               />
             </svg>
-            Google
+            Continue with Google
           </Button>
 
           <div className="mt-6 text-center text-sm">
