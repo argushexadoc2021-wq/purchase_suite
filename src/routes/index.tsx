@@ -63,7 +63,7 @@ function Landing() {
       </header>
 
       {/* Hero Section */}
-      <section className="mx-auto max-w-7xl px-6 pt-2 pb-32 relative z-10">
+      <section className="mx-auto max-w-7xl px-6 pt-16 pb-32 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
 
           {/* Left Column: Text Content */}
