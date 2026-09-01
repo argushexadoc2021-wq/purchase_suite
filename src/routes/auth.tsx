@@ -86,20 +86,25 @@ function AuthPage() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col bg-background">
-      <header className="mx-auto w-full max-w-6xl px-6 py-6">
-        <Link to="/" className="flex items-center gap-2 font-display text-lg font-semibold tracking-tight text-primary">
+    <main className="flex min-h-screen flex-col bg-[#0a0a0a] text-white relative overflow-hidden font-sans selection:bg-emerald-500/30">
+      {/* Dynamic Background Gradients */}
+      <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-emerald-500/20 blur-[120px] mix-blend-screen animate-pulse pointer-events-none" style={{ animationDuration: '8s' }} />
+      <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] rounded-full bg-purple-600/20 blur-[120px] mix-blend-screen animate-pulse pointer-events-none" style={{ animationDuration: '10s', animationDelay: '2s' }} />
+      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay pointer-events-none"></div>
+
+      <header className="mx-auto w-full max-w-6xl px-6 py-6 relative z-20">
+        <Link to="/" className="flex items-center gap-2 font-display text-lg font-semibold tracking-tight text-white">
           <img src="/logo.jpg" alt="Argus Logo" className="w-8 h-8 object-contain" />
           Argus Purchase Suite
         </Link>
       </header>
 
-      <div className="flex flex-1 items-start justify-center px-6 pb-16 pt-6">
-        <div className="surface-panel w-full max-w-md p-7">
-          <h1 className="text-2xl font-semibold">
+      <div className="flex flex-1 items-start justify-center px-6 pb-16 pt-6 relative z-10">
+        <div className="w-full max-w-md p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-2xl shadow-black/50">
+          <h1 className="text-2xl font-bold text-white">
             {isRegistering ? "Create your account" : "Your invoice workspace"}
           </h1>
-          <p className="mt-2 text-sm text-muted-foreground">
+          <p className="mt-2 text-sm text-zinc-400">
             {isRegistering
               ? "Register to start processing invoices and managing your CRM."
               : "Sign in to upload invoices and let AI handle the data entry."}
@@ -141,7 +146,7 @@ function AuthPage() {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            <Button type="submit" className="w-full" disabled={busy}>
+            <Button type="submit" className="w-full bg-emerald-500 hover:bg-emerald-400 text-black font-semibold rounded-full shadow-[0_0_20px_rgba(16,185,129,0.2)] transition-all" disabled={busy}>
               {busy ? <Loader2 className="size-4 animate-spin mr-2" /> : null}
               {isRegistering ? "Register" : "Sign in"}
             </Button>
@@ -149,17 +154,17 @@ function AuthPage() {
 
           <div className="relative my-6">
             <div className="absolute inset-0 flex items-center">
-              <span className="w-full border-t border-border" />
+              <span className="w-full border-t border-white/10" />
             </div>
             <div className="relative flex justify-center text-xs uppercase">
-              <span className="bg-card px-2 text-muted-foreground">Or continue with</span>
+              <span className="bg-[#0a0a0a] px-2 text-zinc-500">Or continue with</span>
             </div>
           </div>
 
           <Button
             variant="outline"
             type="button"
-            className="w-full"
+            className="w-full border-white/10 bg-white/5 hover:bg-white/10 text-white rounded-full transition-all"
             onClick={handleGoogleLogin}
             disabled={busy}
           >
@@ -188,7 +193,7 @@ function AuthPage() {
             <button
               type="button"
               onClick={() => setIsRegistering(!isRegistering)}
-              className="text-primary hover:underline"
+              className="text-emerald-400 hover:text-emerald-300 hover:underline transition-colors"
             >
               {isRegistering
                 ? "Already have an account? Sign in"

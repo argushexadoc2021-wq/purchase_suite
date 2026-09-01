@@ -149,10 +149,15 @@ function OnboardingPage() {
     };
 
     return (
-        <main className="flex min-h-screen flex-col items-center justify-center bg-background p-6">
-            <div className="surface-panel w-full max-w-2xl p-7">
-                <h1 className="text-2xl font-semibold">Complete your profile</h1>
-                <p className="mt-2 text-sm text-muted-foreground">
+        <main className="flex min-h-screen flex-col items-center justify-center bg-[#0a0a0a] text-white relative overflow-hidden font-sans selection:bg-emerald-500/30 p-6">
+            {/* Dynamic Background Gradients */}
+            <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-emerald-500/20 blur-[120px] mix-blend-screen animate-pulse pointer-events-none" style={{ animationDuration: '8s' }} />
+            <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] rounded-full bg-purple-600/20 blur-[120px] mix-blend-screen animate-pulse pointer-events-none" style={{ animationDuration: '10s', animationDelay: '2s' }} />
+            <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay pointer-events-none"></div>
+
+            <div className="w-full max-w-2xl p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-2xl shadow-black/50 relative z-10">
+                <h1 className="text-2xl font-bold text-white">Complete your profile</h1>
+                <p className="mt-2 text-sm text-zinc-400">
                     Please verify your organization details to continue.
                 </p>
 
@@ -186,8 +191,8 @@ function OnboardingPage() {
                     )}
 
                     {isGstVerified && gstDetails && !existingCompany && (
-                        <div className="rounded-lg border bg-card text-card-foreground shadow-sm overflow-hidden">
-                            <div className="bg-muted/50 px-4 py-3 border-b flex items-center justify-between">
+                        <div className="rounded-lg border border-white/10 bg-black/50 text-white shadow-sm overflow-hidden backdrop-blur-md">
+                            <div className="bg-white/5 px-4 py-3 border-b border-white/10 flex items-center justify-between">
                                 <h3 className="font-semibold text-sm">Verified Company Details</h3>
                                 <div className="flex items-center text-emerald-600 text-xs font-medium">
                                     <CheckCircle2 className="w-4 h-4 mr-1" />
@@ -196,17 +201,17 @@ function OnboardingPage() {
                             </div>
                             <div className="p-4 grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                                 <div className="space-y-1">
-                                    <p className="text-muted-foreground text-xs uppercase tracking-wider">Legal Name</p>
+                                    <p className="text-zinc-400 text-xs uppercase tracking-wider">Legal Name</p>
                                     <p className="font-medium">{gstDetails.organization_name}</p>
                                 </div>
                                 {gstDetails.trade_name && (
                                     <div className="space-y-1">
-                                        <p className="text-muted-foreground text-xs uppercase tracking-wider">Trade Name</p>
+                                        <p className="text-zinc-400 text-xs uppercase tracking-wider">Trade Name</p>
                                         <p className="font-medium">{gstDetails.trade_name}</p>
                                     </div>
                                 )}
                                 <div className="space-y-1">
-                                    <p className="text-muted-foreground text-xs uppercase tracking-wider">Status</p>
+                                    <p className="text-zinc-400 text-xs uppercase tracking-wider">Status</p>
                                     <p className="font-medium">
                                         <span className="inline-flex items-center rounded-full bg-emerald-100 px-2.5 py-0.5 text-xs font-semibold text-emerald-800">
                                             {gstDetails.gstin_status}
@@ -214,21 +219,21 @@ function OnboardingPage() {
                                     </p>
                                 </div>
                                 <div className="space-y-1">
-                                    <p className="text-muted-foreground text-xs uppercase tracking-wider">Taxpayer Type</p>
+                                    <p className="text-zinc-400 text-xs uppercase tracking-wider">Taxpayer Type</p>
                                     <p className="font-medium">{gstDetails.taxpayer_type}</p>
                                 </div>
                                 <div className="space-y-1">
-                                    <p className="text-muted-foreground text-xs uppercase tracking-wider">Business Type</p>
+                                    <p className="text-zinc-400 text-xs uppercase tracking-wider">Business Type</p>
                                     <p className="font-medium">{gstDetails.constitution_of_business}</p>
                                 </div>
                                 <div className="space-y-1">
-                                    <p className="text-muted-foreground text-xs uppercase tracking-wider">Registration Date</p>
+                                    <p className="text-zinc-400 text-xs uppercase tracking-wider">Registration Date</p>
                                     <p className="font-medium">{gstDetails.date_of_registration}</p>
                                 </div>
                                 {gstDetails.address && (
-                                    <div className="space-y-1 md:col-span-2 pt-2 border-t mt-2">
-                                        <p className="text-muted-foreground text-xs uppercase tracking-wider">Principal Place of Business</p>
-                                        <p className="font-medium text-muted-foreground">
+                                    <div className="space-y-1 md:col-span-2 pt-2 border-t border-white/10 mt-2">
+                                        <p className="text-zinc-400 text-xs uppercase tracking-wider">Principal Place of Business</p>
+                                        <p className="font-medium text-zinc-300">
                                             {[
                                                 gstDetails.address.building_name,
                                                 gstDetails.address.door_number,
@@ -246,7 +251,7 @@ function OnboardingPage() {
                         </div>
                     )}
 
-                    <Button type="submit" className="w-full" disabled={busy || !isGstVerified || !!existingCompany}>
+                    <Button type="submit" className="w-full bg-emerald-500 hover:bg-emerald-400 text-black font-semibold rounded-full shadow-[0_0_20px_rgba(16,185,129,0.2)] transition-all" disabled={busy || !isGstVerified || !!existingCompany}>
                         {busy ? <Loader2 className="size-4 animate-spin mr-2" /> : null}
                         Confirm & Complete Setup
                     </Button>
@@ -254,7 +259,7 @@ function OnboardingPage() {
                     <Button
                         type="button"
                         variant="ghost"
-                        className="w-full text-muted-foreground"
+                        className="w-full text-zinc-400 hover:text-white hover:bg-white/5 rounded-full transition-all"
                         onClick={async () => {
                             await supabase.auth.signOut();
                             navigate({ to: "/auth" });
