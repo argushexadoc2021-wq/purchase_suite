@@ -104,7 +104,7 @@ function Landing() {
             {/* Glow behind image */}
             <div className="absolute inset-0 bg-gradient-to-tr from-rose-500/10 to-red-500/10 blur-3xl rounded-full transform scale-90" />
 
-            <div className="relative rounded-2xl border border-white/10 bg-white/5 p-2 backdrop-blur-xl shadow-2xl shadow-black/50 transform transition-transform hover:scale-[1.02] duration-500 aspect-square max-w-[600px] w-full">
+            <div className="relative rounded-2xl border border-white/10 bg-white/5 p-2 backdrop-blur-xl shadow-2xl shadow-black/50 transform transition-transform hover:scale-[1.02] duration-500 h-[400px] lg:h-[500px] max-w-[600px] w-full">
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/10 to-transparent opacity-50 pointer-events-none z-10" />
               <div className="relative w-full h-full rounded-xl overflow-hidden border border-white/5 shadow-inner">
                 {heroImages.map((src, index) => (
