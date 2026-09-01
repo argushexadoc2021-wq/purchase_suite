@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState, useEffect } from "react";
 import { ScanText, ShieldCheck, ArrowRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -25,7 +26,23 @@ export const Route = createFileRoute("/")({
   component: Landing,
 });
 
+const heroImages = [
+  "/hero-dashboard-soft.png",
+  "/hero-carousel-1.png",
+  "/hero-carousel-2.png",
+  "/hero-carousel-3.png"
+];
+
 function Landing() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <main className="min-h-screen bg-[#0a0a0a] text-white relative overflow-hidden font-sans selection:bg-rose-500/30">
       {/* Dynamic Background Gradients */}
@@ -88,13 +105,19 @@ function Landing() {
             {/* Glow behind image */}
             <div className="absolute inset-0 bg-gradient-to-tr from-rose-500/10 to-red-500/10 blur-3xl rounded-full transform scale-90" />
 
-            <div className="relative rounded-2xl border border-white/10 bg-white/5 p-2 backdrop-blur-xl shadow-2xl shadow-black/50 transform transition-transform hover:scale-[1.02] duration-500">
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/10 to-transparent opacity-50 pointer-events-none" />
-              <img
-                src="/hero-dashboard-soft.png"
-                alt="Argus Purchase Suite Dashboard"
-                className="rounded-xl w-full max-w-[600px] h-auto object-cover border border-white/5 shadow-inner"
-              />
+            <div className="relative rounded-2xl border border-white/10 bg-white/5 p-2 backdrop-blur-xl shadow-2xl shadow-black/50 transform transition-transform hover:scale-[1.02] duration-500 w-full max-w-[600px]">
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/10 to-transparent opacity-50 pointer-events-none z-10" />
+              <div className="relative w-full aspect-square rounded-xl overflow-hidden border border-white/5 shadow-inner">
+                {heroImages.map((src, index) => (
+                  <img
+                    key={src}
+                    src={src}
+                    alt={`Argus Purchase Suite Feature ${index + 1}`}
+                    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${index === currentImageIndex ? "opacity-100" : "opacity-0"
+                      }`}
+                  />
+                ))}
+              </div>
             </div>
           </div>
 
