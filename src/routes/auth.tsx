@@ -31,7 +31,6 @@ function AuthPage() {
   const navigate = useNavigate();
   const [isRegistering, setIsRegistering] = useState(true);
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [gstNumber, setGstNumber] = useState("");
   const [busy, setBusy] = useState(false);
 
@@ -46,9 +45,8 @@ function AuthPage() {
     setBusy(true);
 
     if (isRegistering) {
-      const { error } = await supabase.auth.signUp({
+      const { error } = await supabase.auth.signInWithOtp({
         email,
-        password,
         options: {
           data: {
             gst_number: gstNumber,
@@ -60,16 +58,15 @@ function AuthPage() {
         toast.error(error.message);
         return;
       }
-      toast.success("Registration successful!");
-      void navigate({ to: "/invoices" });
+      toast.success("Magic link sent! Please check your email.");
     } else {
-      const { error } = await supabase.auth.signInWithPassword({ email, password });
+      const { error } = await supabase.auth.signInWithOtp({ email });
       setBusy(false);
       if (error) {
         toast.error(error.message);
         return;
       }
-      void navigate({ to: "/invoices" });
+      toast.success("Magic link sent! Please check your email.");
     }
   };
 
@@ -133,17 +130,6 @@ function AuthPage() {
                 autoComplete="off"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-              />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="password">Password</Label>
-              <Input
-                id="password"
-                type="password"
-                required
-                autoComplete="new-password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
               />
             </div>
             <Button type="submit" className="w-full bg-rose-600 hover:bg-rose-500 text-white font-semibold rounded-full shadow-[0_0_20px_rgba(225,29,72,0.2)] transition-all" disabled={busy}>

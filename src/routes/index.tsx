@@ -131,7 +131,7 @@ function Landing() {
             <span className="font-display font-bold text-white">Argus Purchase Suite</span>
           </div>
           <p className="text-sm text-zinc-500">
-            © 2026 Argus CNC. All Rights Reserved.
+            © 2026 arguscnc.com All Rights Reserved.
           </p>
         </div>
       </footer>
